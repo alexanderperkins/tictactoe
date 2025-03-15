@@ -1,5 +1,5 @@
 package tictactoe;
 
 public enum Player {
-    X, O, ayz;
+    X, O;
 }
