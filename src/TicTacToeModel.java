@@ -8,6 +8,7 @@ public class TicTacToeModel implements TicTacToe {
 
   @Override
   public String toString() {
+    //testing ikwo()
     // Using Java stream API to save code:
     return Arrays.stream(getBoard()).map(
       row -> " " + Arrays.stream(row).map(
