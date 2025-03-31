@@ -1,8 +1,5 @@
 import org.junit.Test;
-
-import tictactoe.Player;
-import tictactoe.TicTacToe;
-import tictactoe.TicTacToeModel;
+import tictactoe.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -36,10 +33,10 @@ public class TicTacToeModelTest {
     assertTrue(ttt1.isGameOver());
     assertEquals(Player.X, ttt1.getWinner());
     assertEquals(" X | X | X\n"
-                          + "-----------\n"
-                          + " O |   |  \n"
-                          + "-----------\n"
-                          + " O |   |  ", ttt1.toString());
+            + "-----------\n"
+            + " O |   |  \n"
+            + "-----------\n"
+            + " O |   |  ", ttt1.toString());
   }
 
   @Test
@@ -145,4 +142,24 @@ public class TicTacToeModelTest {
   }
 
   // TODO: test case where board is full AND there is a winner
+  @Test
+  public void testWinnerBoardFull() {
+    ttt1.move(1, 1);
+    ttt1.move(2, 2);
+    ttt1.move(0, 2);
+    ttt1.move(0, 0);
+    ttt1.move(0, 1);
+    ttt1.move(1, 0);
+    ttt1.move(1, 2);
+    ttt1.move(2, 1);
+    ttt1.move(2, 0);
+    assertTrue(ttt1.isGameOver());
+    assertEquals(Player.X, ttt1.getWinner());
+    assertEquals(
+            " O | X | X\n"
+                    + "-----------\n"
+                    + " O | X | X\n"
+                    + "-----------\n"
+                    + " X | O | O", ttt1.toString());
+  }
 }
