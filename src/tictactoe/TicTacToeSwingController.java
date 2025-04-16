@@ -7,10 +7,10 @@ import java.awt.event.MouseEvent;
 
 public class TicTacToeSwingController {
   private final TicTacToe model;
-  private final TicTacToeSwingView view;
+  private final TicTacToeView view;
 
 
-  public TicTacToeSwingController(TicTacToe model, TicTacToeSwingView view) {
+  public TicTacToeSwingController(TicTacToe model, TicTacToeView view) {
     this.model = model;
     this.view = view;
 

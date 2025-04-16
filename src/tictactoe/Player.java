@@ -5,6 +5,7 @@ public enum Player {
 
     @Override
     public String toString() {
+
         return this == X ? "X" : "O";
     }
 }
