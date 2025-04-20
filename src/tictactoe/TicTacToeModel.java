@@ -81,7 +81,6 @@ public class TicTacToeModel implements TicTacToe {
     }
   }
 
-
   /**
    * From interface.
    */
@@ -98,7 +97,6 @@ public class TicTacToeModel implements TicTacToe {
   public boolean isGameOver() {
     return this.isGameOver;
   }
-
 
   /**
    * From interface.
@@ -122,7 +120,6 @@ public class TicTacToeModel implements TicTacToe {
     }
     return copyBoard;
   }
-
 
   /**
    * From interface.
@@ -169,13 +166,11 @@ public class TicTacToeModel implements TicTacToe {
       return;
     }
 
-
     // Check column
     if (checkLine(0, col, 1, 0)) {
       setWinner();
       return;
     }
-
 
     // Check for draw
     if (Arrays.stream(gameBoard).flatMap(Arrays::stream).noneMatch(p -> p == null)) {

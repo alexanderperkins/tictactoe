@@ -1,6 +1,5 @@
 package tictactoe;
 
-
 /**
  * A single game of Tic Tac Toe, played on a three-by-three grid with two players,
  * with the object of the game to achieve three markers in a row either vertically,
