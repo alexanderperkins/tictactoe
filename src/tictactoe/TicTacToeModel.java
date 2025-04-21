@@ -1,8 +1,8 @@
 package tictactoe;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Tic Tac Toe game model that manages the game status, tracks players,
@@ -14,10 +14,9 @@ public class TicTacToeModel implements TicTacToe {
   private boolean isGameOver;
   private Player winner;
 
-
   /**
    * Initializes the Tic Tac Toe game with an empty 3x3 gameBoard.
-   * tictactoe.Player X always starts the game.
+   * tictactoe.tictactoe.Player X always starts the game.
    */
   public TicTacToeModel() {
     this.gameBoard = new Player[3][3];
@@ -25,7 +24,6 @@ public class TicTacToeModel implements TicTacToe {
     this.isGameOver = false;
     this.winner = null;
   }
-
 
   @Override
   public String toString() {
@@ -38,7 +36,6 @@ public class TicTacToeModel implements TicTacToe {
      */
     // This is the equivalent code as above, but using iteration, and still using
     // the helpful built-in String.join method.
-
 
     List<String> rows = new ArrayList<>();
     for (Player[] row : getBoard()) {
@@ -54,9 +51,7 @@ public class TicTacToeModel implements TicTacToe {
     }
     return String.join("\n-----------\n", rows);
 
-
   }
-
 
   /**
    * From interface.
@@ -71,10 +66,8 @@ public class TicTacToeModel implements TicTacToe {
       throw new IllegalStateException("Game finished!");
     }
 
-
     this.gameBoard[row][col] = this.currentPlayer;
     checkGameStatus(row, col);
-
 
     if (!this.isGameOver) {
       this.currentPlayer = (this.currentPlayer == Player.X) ? Player.O : Player.X;
@@ -88,7 +81,6 @@ public class TicTacToeModel implements TicTacToe {
   public Player getTurn() {
     return this.currentPlayer;
   }
-
 
   /**
    * From interface.
@@ -106,7 +98,6 @@ public class TicTacToeModel implements TicTacToe {
     return this.winner;
   }
 
-
   /**
    * From interface.
    */
@@ -122,7 +113,7 @@ public class TicTacToeModel implements TicTacToe {
   }
 
   /**
-   * From interface.
+   * {@inheritDoc}
    */
   @Override
   public Player getMarkAt(int row, int col) throws IllegalArgumentException {
@@ -133,14 +124,12 @@ public class TicTacToeModel implements TicTacToe {
     return copyBoard[row][col];
   }
 
-
   /**
    * Checks if the given row or column index is outside the valid range (0-2).
    */
   private boolean isOutsideOfBoard(int row, int col) {
     return row < 0 || row > 2 || col < 0 || col > 2;
   }
-
 
   /**
    * Updates the game status after each move, checking for win or draw.
@@ -152,13 +141,11 @@ public class TicTacToeModel implements TicTacToe {
       return;
     }
 
-
     // Check anti-diagonal
     if (row + col == 2 && checkLine(0, 2, 1, -1)) {
       setWinner();
       return;
     }
-
 
     // Check row
     if (checkLine(row, 0, 0, 1)) {
@@ -179,7 +166,6 @@ public class TicTacToeModel implements TicTacToe {
     }
   }
 
-
   private boolean checkLine(int startRow, int startCol, int rowStep, int colStep) {
     for (int i = 0; i < 3; i++) {
       if (gameBoard[startRow + i * rowStep][startCol + i * colStep] != currentPlayer) {
@@ -189,11 +175,9 @@ public class TicTacToeModel implements TicTacToe {
     return true;
   }
 
-
   private void setWinner() {
     this.isGameOver = true;
     this.winner = currentPlayer;
   }
-
 
 }
